@@ -4,19 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import cors from "cors";
+import { BrowserRouter } from 'react-router-dom';
+// import cors from "cors";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  credentials: true,            //access-control-allow-credentials:true
-  optionSuccessStatus: 200
-}
-App.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: 'http://localhost:3000',
+//   credentials: true,            //access-control-allow-credentials:true
+//   optionSuccessStatus: 200
+// }
+// App.use(cors(corsOptions));
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

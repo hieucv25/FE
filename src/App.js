@@ -1,6 +1,12 @@
 import './App.css';
 import { Component } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ListVoucher from './components/ListVoucher';
+import HeaderComponents from './components/HeaderComponents';
+import FooterComponents from './components/FooterComponents';
+import ListCustomer from './components/ListCustomer';
+import Create_Voucher_Componets from './components/Create_Voucher_Componets';
+import Update_Voucher_Components from './components/Update_Voucher_Components';
 
 // class fe extends Component {
 //   state = {
@@ -84,7 +90,17 @@ import ListVoucher from './components/ListVoucher';
 function App() {
   return (
     <div>
-      <ListVoucher></ListVoucher>
+      <HeaderComponents />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<ListCustomer />}></Route>
+          <Route path="customer/index" element={<ListCustomer />}></Route>
+          <Route path="voucher/index" element={<ListVoucher />}></Route>
+          <Route path="voucher/add" element={<Create_Voucher_Componets />}></Route>
+          <Route path="voucher/view-update/:id" element={<Update_Voucher_Components />}></Route>
+        </Routes>
+      </div>
+      <FooterComponents />
     </div>
   );
 }

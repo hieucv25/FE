@@ -14,6 +14,9 @@ const ListCustomer = () => {
     return (
         <div className="container">
             <h2 className="text-center">List Customer</h2>
+            <div className="row">
+                <div className="col-md-2 padd2"><Link className="btn btn-success" to="/customer/add">Add Customer</Link></div>
+            </div>
             <table className="table table-bordered table-striped">
                 <thead>
                     <th>ID</th>
@@ -33,9 +36,9 @@ const ListCustomer = () => {
                                     <td>{customer.sinhNhat}</td>
                                     <td>{customer.diaChi}</td>
                                     <td>{customer.sdt}</td>
-                                    <td><a className='btn btn-danger' href=''>Delete</a>
+                                    <td><Link className='btn btn-danger' to={``}>Delete</Link>
                                         <span className="padd"></span>
-                                        <a className='btn btn-success' href=''>Detail</a>
+                                        <Link className='btn btn-success' to={``}>Detail</Link>
                                     </td>
                                 </tr>
                         )

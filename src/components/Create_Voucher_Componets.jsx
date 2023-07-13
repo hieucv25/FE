@@ -25,10 +25,10 @@ export default class Create_Voucher_Componets extends Component {
         this.changeCustomer = this.changeCustomer.bind(this);
         this.changeValue = this.changeValue.bind(this);
         this.changeValueMax = this.changeValueMax.bind(this);
-        this.saveCustomer = this.saveCustomer.bind(this);
+        this.saveVoucher = this.saveVoucher.bind(this);
     }
 
-    saveCustomer = (e) => {
+    saveVoucher = (e) => {
         e.preventDefault();
         let voucher = {
             ngayBatDau: this.state.ngayBatDau, ngayKetThuc: this.state.ngayKetThuc, ma: this.state.ma,
@@ -36,7 +36,7 @@ export default class Create_Voucher_Componets extends Component {
             giaTriGiamToiDa: this.state.giaTriGiamToiDa, kh: { ma: this.state.selectedCustomer }
         }
         console.log('voucher =>' + JSON.stringify(voucher));
-        if (Number(this.state.selectedCustomer) == 0) {
+        if (Number(this.state.selectedCustomer) === 0) {
             alert('Please select a customer');
         }
         else if (this.state.ma.length > 10) {
@@ -176,6 +176,7 @@ export default class Create_Voucher_Componets extends Component {
                                     <select className="form-select" name="trangThai" value={this.state.trangThai} onChange={this.changeStatus}>
                                         <option value="0">Chưa Dùng</option>
                                         <option value="1">Đã Dùng</option>
+                                        <option value="2">Hết Hạn</option>
                                     </select>
                                 </div>
                             </div>
@@ -203,7 +204,7 @@ export default class Create_Voucher_Componets extends Component {
                                 <div className="row">
                                     <div className="col-md-5">
                                         <br />
-                                        <button type="submit" className="btn btn-success" onClick={this.saveCustomer}>Save</button>
+                                        <button type="submit" className="btn btn-success" onClick={this.saveVoucher}>Save</button>
                                     </div>
                                 </div>
                             </div>

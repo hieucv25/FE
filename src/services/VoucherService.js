@@ -1,14 +1,28 @@
-import axios from 'axios';
-const VOUCHER_BASE_API_URL = 'http://localhost:8080/pgg/';
+import { instance } from './instance';
+
+const VOUCHER_BASE_API_URL = 'pgg/';
+
 class VoucherService {
     getAllVouchers() {
-        return axios.get(VOUCHER_BASE_API_URL + 'index');
+        return instance.get(VOUCHER_BASE_API_URL + 'index');
     }
     createVoucher(voucher) {
-        return axios.post(VOUCHER_BASE_API_URL + 'save', voucher);
+        return instance.post(VOUCHER_BASE_API_URL + 'save', voucher);
     }
     getById(voucherId) {
-        return axios.get(VOUCHER_BASE_API_URL + 'getById/' + voucherId);
+        return instance.get(VOUCHER_BASE_API_URL + 'getById/' + voucherId);
+    }
+    deleteById(voucherId) {
+        return instance.delete(VOUCHER_BASE_API_URL + 'delete/' + voucherId);
+    }
+    updateVoucher(voucherId, voucher) {
+        return instance.put(VOUCHER_BASE_API_URL + 'update/' + voucherId, voucher);
+    }
+    searchByCustomer(ma_KH) {
+        return instance.get(VOUCHER_BASE_API_URL + 'searchByKH/' + ma_KH);
+    }
+    paging(number) {
+        return instance.get(VOUCHER_BASE_API_URL + 'index/' + number);
     }
 }
 export default new VoucherService();

@@ -1,17 +1,19 @@
-import axios from 'axios';
-const CUSTOMER_BASE_API_URL = 'http://localhost:8080/khach-hang/';
+import { instance } from './instance';
+
+const CUSTOMER_BASE_API_URL = 'khach-hang/';
+
 class CustomerService {
     getAllCustomer() {
-        return axios.get(CUSTOMER_BASE_API_URL + 'index');
+        return instance.get(CUSTOMER_BASE_API_URL + 'index');
     }
     deleteById(id) {
-        return axios.delete(CUSTOMER_BASE_API_URL + 'delete/' + id);
+        return instance.delete(CUSTOMER_BASE_API_URL + 'delete/' + id);
     }
     getCustomerById(id) {
-        return axios.get(CUSTOMER_BASE_API_URL + 'getById/' + id);
+        return instance.get(CUSTOMER_BASE_API_URL + 'getById/' + id);
     }
     createCustomer(customer) {
-        return axios.post(CUSTOMER_BASE_API_URL, customer);
+        return instance.post(CUSTOMER_BASE_API_URL + 'save', customer);
     }
 }
 export default new CustomerService();

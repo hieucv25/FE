@@ -308,6 +308,18 @@ const Update_Voucher_Component = () => {
             kh: { ma: selectedCustomer },
         };
         console.log('voucher =>' + JSON.stringify(voucher));
+        if (Number(selectedCustomer) === 0) {
+            alert('Customer not selected');
+        } else if (ma.length > 10) {
+            alert('Id voucher must be less than 10 characters');
+        } else {
+            VoucherService.updateVoucher(voucher.ma, voucher).then(res => {
+                if (res.status === 200) {
+                    alert('Update Successful');
+                    window.location.href = "/voucher/index";
+                }
+            });
+        }
     };
 
     return (
